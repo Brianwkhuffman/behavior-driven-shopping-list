@@ -45,15 +45,17 @@ describe("ShoppingListItem", function() {
       let food = new ShoppingListItem("apples", "food");
       expect(food.render).to.be.a("function");
     });
-    it('should render a list with className "completed_[isDone]"', function() {
+    it("should be a string", function() {
       let food = new ShoppingListItem("apples", "food");
-      document
-        .getElementsByTagName("li")
-        .should.have.class(`completed_${this.isDone}`);
+      expect(food.render()).to.be.a("string");
     });
-    it("should have property name in span tag", function() {
+    it("should return an html formatted string :)", function() {
       let food = new ShoppingListItem("apples", "food");
-      document.getElementsByTagName("span").should.have.text(food.name);
+      expect(food.render()).to.equal(
+        `<li class="completed_${food.isDone}"><span>${food.name}</span> <span>${
+          food.description
+        }</span></li>`
+      );
     });
   });
 });
