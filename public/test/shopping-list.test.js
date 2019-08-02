@@ -58,5 +58,16 @@ describe("ShoppingList", function() {
       cart.items.should.contain(book);
       cart.items.should.not.contain(drink);
     });
+    it("should only take in ShoppingListItem object", function() {
+      let cart = new ShoppingList();
+      let food = new ShoppingListItem("apples", "food");
+      let book = new ShoppingListItem("comics", "marvel");
+      let drink = new ShoppingListItem("coke", "beverage");
+      cart.addItem(food);
+      cart.addItem(book);
+      cart.addItem(drink);
+
+      expect(cart.removeItem.bind(cart, "food")).to.throw(Error);
+    });
   });
 });
