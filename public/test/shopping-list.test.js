@@ -21,16 +21,42 @@ describe("ShoppingList", function() {
     it("should only take in ShoppingListItem object", function() {
       let cart = new ShoppingList();
       let trash = { calvin: "suuuuper trash" };
-      let str = "calvin is trash";
-      let arr = ["calvin", "is", "trash"];
-      let num = 0;
       cart.addItem(trash);
-      cart.addItem(str);
-      cart.addItem(arr);
-      cart.addItem(num);
-      expect(function() {
-        cart.addItem(trash);
-      }).to.throw(Error);
+      expect(cart.items).to.deep.equal([]);
+    });
+  });
+  describe(".removeItem", function() {
+    it("should be a function", function() {
+      let cart = new ShoppingList();
+      expect(cart.removeItem).to.be.a("function");
+    });
+    it("should delete item from items array", function() {
+      let cart = new ShoppingList();
+      let food = new ShoppingListItem("apples", "food");
+      let book = new ShoppingListItem("comics", "marvel");
+      let drink = new ShoppingListItem("coke", "beverage");
+      cart.addItem(food);
+      cart.addItem(book);
+      cart.addItem(drink);
+      cart.removeItem(book);
+
+      cart.items.should.contain(food);
+      cart.items.should.contain(drink);
+      cart.items.should.not.contain(book);
+    });
+    it("should delete last item if no parameters", function() {
+      let cart = new ShoppingList();
+      let food = new ShoppingListItem("apples", "food");
+      let book = new ShoppingListItem("comics", "marvel");
+      let drink = new ShoppingListItem("coke", "beverage");
+      cart.addItem(food);
+      cart.addItem(book);
+      cart.addItem(drink);
+      cart.removeItem();
+
+      cart.items.should.contain(food);
+      cart.items.should.contain(book);
+      cart.items.should.not.contain(drink);
     });
   });
 });
