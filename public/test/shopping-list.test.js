@@ -21,8 +21,8 @@ describe("ShoppingList", function() {
     it("should only take in ShoppingListItem object", function() {
       let cart = new ShoppingList();
       let trash = { calvin: "suuuuper trash" };
-      cart.addItem(trash);
-      expect(cart.items).to.deep.equal([]);
+      //   cart.addItem(trash);
+      expect(cart.addItem.bind(cart, trash)).to.throw(Error);
     });
   });
   describe(".removeItem", function() {

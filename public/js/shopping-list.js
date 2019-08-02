@@ -6,7 +6,7 @@ class ShoppingList {
     if (itemToAdd instanceof ShoppingListItem) {
       this.items.push(itemToAdd);
     } else {
-      console.log("Cannot add item.");
+      throw new Error();
     }
   }
   removeItem(itemToRemove) {
@@ -15,6 +15,8 @@ class ShoppingList {
       this.items.pop();
     } else if (itemToRemove instanceof ShoppingListItem) {
       this.items.splice(itemIndex, 1);
+    } else {
+      throw new Error();
     }
   }
 }
