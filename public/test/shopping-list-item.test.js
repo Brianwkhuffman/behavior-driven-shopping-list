@@ -1,6 +1,5 @@
 const expect = chai.expect;
 const should = chai.should();
-var sandbox;
 
 describe("ShoppingListItem", function() {
   it("should be a function", function() {
