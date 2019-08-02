@@ -14,4 +14,32 @@ describe("ShoppingListItem", function() {
     let food = new ShoppingListItem("apples", "food");
     food.description.should.equal("food");
   });
+  it("should have an isDone property", function() {
+    let food = new ShoppingListItem("apples", "food");
+    food.isDone.should.equal(false);
+  });
+  describe(".check", function() {
+    it("should be a function", function() {
+      let food = new ShoppingListItem("apples", "food");
+      expect(food.check).to.be.a("function");
+    });
+    it("property isDone should be true", function() {
+      let food = new ShoppingListItem("apples", "food");
+      food.check();
+      expect(food.isDone).to.be.true;
+    });
+  });
+  describe(".uncheck", function() {
+    it("should be a function", function() {
+      let food = new ShoppingListItem("apples", "food");
+      expect(food.uncheck).to.be.a("function");
+    });
+    it("property isDone should be false", function() {
+      let food = new ShoppingListItem("apples", "food");
+      food.check();
+      food.uncheck();
+      expect(food.isDone).to.be.false;
+    });
+  });
+  //   describe(".render", function() {});
 });
