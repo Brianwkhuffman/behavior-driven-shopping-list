@@ -40,5 +40,20 @@ describe("ShoppingListItem", function() {
       expect(food.isDone).to.be.false;
     });
   });
-  //   describe(".render", function() {});
+  describe(".render", function() {
+    it("should be a function", function() {
+      let food = new ShoppingListItem("apples", "food");
+      expect(food.render).to.be.a("function");
+    });
+    it('should render a list with className "completed_[isDone]"', function() {
+      let food = new ShoppingListItem("apples", "food");
+      document
+        .getElementsByTagName("li")
+        .should.have.class(`completed_${this.isDone}`);
+    });
+    it("should have property name in span tag", function() {
+      let food = new ShoppingListItem("apples", "food");
+      document.getElementsByTagName("span").should.have.text(food.name);
+    });
+  });
 });
