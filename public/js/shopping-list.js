@@ -2,6 +2,9 @@ class ShoppingList {
   constructor() {
     this.items = [];
   }
+  getItems() {
+    return this.items;
+  }
   addItem(itemToAdd) {
     if (itemToAdd instanceof ShoppingListItem) {
       this.items.push(itemToAdd);
@@ -18,5 +21,12 @@ class ShoppingList {
     } else {
       throw new Error();
     }
+  }
+  render() {
+    let htmloutput = "";
+    for (let i = 0; i < this.items.length; i++) {
+      htmloutput += `${this.items[i].render()}`;
+    }
+    return "<ul>" + htmloutput + "</ul>";
   }
 }
