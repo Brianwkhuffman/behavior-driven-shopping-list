@@ -10,8 +10,12 @@ class ShoppingListItem {
   uncheck() {
     this.isDone = false;
   }
-  render() {
-    let htmlOutput = `<li class="completed_${this.isDone}"><span>${this.name}</span><span>${this.description}</span></li>`;
+  render(idx) {
+    let htmlOutput = `<li class="completed_${
+      this.isDone
+    }"><input type="checkbox" onchange="changeCheckedStatus(${idx}, this)"/><span>${
+      this.name
+    }</span><span>${this.description}</span></li>`;
     return htmlOutput;
   }
 }
