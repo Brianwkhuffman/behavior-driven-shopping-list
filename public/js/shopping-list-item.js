@@ -13,9 +13,9 @@ class ShoppingListItem {
   render(idx) {
     let htmlOutput = `<li class="completed_${
       this.isDone
-    }"><input type="checkbox" onchange="changeCheckedStatus(${idx}, this)"/><span>${
+    }" onchange="changeCheckedStatus(${idx}, this)"><input type="checkbox"/><span>${
       this.name
-    }</span><span>${this.description}</span></li>`;
+    }: </span><span>${this.description} </span><button>remove</button></li>`;
     return htmlOutput;
   }
 }

@@ -16,5 +16,15 @@ document
   });
 
 function changeCheckedStatus(idx, checkbox) {
-  checkbox.shopList.check();
+  if (shopList.getItems()[idx].isDone === false) {
+    checkbox.style.textDecoration = "line-through";
+    shopList.getItems()[idx].check();
+    checkbox.className = `completed_${shopList.getItems()[idx].isDone}`;
+  } else {
+    checkbox.style.textDecoration = "none";
+    shopList.getItems()[idx].uncheck();
+    checkbox.className = `completed_${shopList.getItems()[idx].isDone}`;
+  }
 }
+
+function removeItemButtonClicked(idx) {}
