@@ -14,6 +14,7 @@ class ShoppingList {
   }
   removeItem(itemToRemove) {
     let itemIndex = this.items.indexOf(itemToRemove);
+    console.log(itemIndex);
     if (!itemToRemove) {
       this.items.pop();
     } else if (itemToRemove instanceof ShoppingListItem) {

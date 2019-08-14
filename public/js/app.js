@@ -26,5 +26,7 @@ function changeCheckedStatus(idx, checkbox) {
     checkbox.className = `completed_${shopList.getItems()[idx].isDone}`;
   }
 }
-
-function removeItemButtonClicked(idx) {}
+function removeItemButtonClicked(idx) {
+  shopList.removeItem(shopList.getItems()[idx]);
+  document.getElementById("content").innerHTML = shopList.render();
+}
