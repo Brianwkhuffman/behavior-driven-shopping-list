@@ -1,0 +1,23 @@
+{
+  "name": "behavior-driven-shopping-list",
+  "version": "0.0.1",
+  "description": "Shopping List",
+  "main": "shopping-list.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brianwkhuffman/behavior-driven-shopping-list.git"
+  },
+  "author": "Brian and Kevin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brianwkhuffman/behavior-driven-shopping-list/issues"
+  },
+  "homepage": "https://github.com/Brianwkhuffman/behavior-driven-shopping-list#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}
